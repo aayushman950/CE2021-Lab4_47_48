@@ -1,5 +1,7 @@
 // Include the header file for ArrayBST
 #include "./ArrayBST.h"
+#include "linkedBST.h"
+#include "linkedBST.cpp"
 #include <iostream>
 using namespace std;
 
@@ -33,4 +35,38 @@ int main()
 
     // Remove an element from the BST
     a.removeBST(5);
+
+    LinkedBST l;
+    l.addBST(1);
+    l.addBST(2);
+    l.addBST(3);
+    l.addBST(4);
+    l.addBST(5);
+    l.addBST(6);
+    l.addBST(7);
+    l.addBST(8);
+
+    cout << "Inorder Traversal:" << endl;
+    l.inorder();
+
+    int value;
+    cout << "Enter a value to search: ";
+    cin >> value;
+    if (l.searchBST(value)) {
+        cout << "Value found!" << endl;
+    }
+    else {
+        cout << "Value not found!" << endl;
+    }
+
+    int minValue, maxValue;
+    l.min(minValue);
+    l.max(maxValue);
+
+    int removeValue;
+    cout << "Enter a value to remove: ";
+    cin >> removeValue;
+    l.removeBST(removeValue);
+    cout << "Inorder Traversal after removal:" << endl;
+    l.inorder();
 }
